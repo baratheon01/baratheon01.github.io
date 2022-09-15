@@ -10,7 +10,12 @@ let bicicleta = document.getElementById("bike");
 let cForm = document.getElementById("contentForm");
 //Variable de la descripción
 let asD = document.createElement("p");
-
+//button
+let butg = document.createElement("button");
+//salto de linea
+let br = document.createElement("br");
+let br2 = document.createElement("br");
+let br3 = document.createElement("br");
 //INPUTS
 let usoTitle = document.getElementById("use");
 //inputs de uso carro
@@ -118,7 +123,7 @@ function carroForm(){
         let br3 = document.createElement("br");
         let br4 = document.createElement("br");
         
-        let butg = document.createElement("button");
+        
         butg.textContent = "Generar Descripcion";
         butg.setAttribute("type", "button");
         butg.setAttribute("id", "buttondc");
@@ -172,10 +177,48 @@ function motosForm(){
         let labelFormTL = document.createElement("label");
         labelFormTL.textContent ="TL";
 
+        contentformSc.setAttribute("type", "checkbox");
+        contentformSc.setAttribute("id", "p");
+        let labelFormSc = document.createElement("label");
+        labelFormSc.textContent ="Scooter";
+
+        contentformCI.setAttribute("type", "checkbox");
+        contentformCI.setAttribute("id", "p");
+        let labelFormCI = document.createElement("label");
+        labelFormCI.textContent ="Ciudad";
+
+        contentformTRL.setAttribute("type", "checkbox");
+        contentformTRL.setAttribute("id", "p");
+        let labelFormTRL = document.createElement("label");
+        labelFormTRL.textContent ="Trail";
+
+        contentformSS.setAttribute("type", "checkbox");
+        contentformSS.setAttribute("id", "p");
+        let labelFormSS = document.createElement("label");
+        labelFormSS.textContent ="Super Sport";
+
+        butg.textContent = "Generar Descripcion";
+        butg.setAttribute("type", "button");
+        butg.setAttribute("id", "buttondc");
+        butg.addEventListener("click", generarDescM);
+
         document.getElementById("contentForm").appendChild(labelFormTT);
         document.getElementById("contentForm").appendChild(contentformTT);
         document.getElementById("contentForm").appendChild(labelFormTL);
         document.getElementById("contentForm").appendChild(contentformTL);
+        document.getElementById("contentForm").appendChild(br);
+        document.getElementById("contentForm").appendChild(br2);
+        document.getElementById("contentForm").appendChild(labelFormSc);
+        document.getElementById("contentForm").appendChild(contentformSc);
+        document.getElementById("contentForm").appendChild(labelFormCI);
+        document.getElementById("contentForm").appendChild(contentformCI);
+        document.getElementById("contentForm").appendChild(labelFormTRL);
+        document.getElementById("contentForm").appendChild(contentformTRL);
+        document.getElementById("contentForm").appendChild(labelFormSS);
+        document.getElementById("contentForm").appendChild(contentformSS);
+        document.getElementById("contentForm").appendChild(br);
+        document.getElementById("contentForm").appendChild(br3);
+        document.getElementById("contentForm").appendChild(butg);
 
     }
 }
@@ -221,6 +264,10 @@ function generarDescC(){
                 break;
         }
     }
+    
+}
+
+function generarDescM() {
     
 }
 
