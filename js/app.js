@@ -1,81 +1,228 @@
-let gdesc = document.querySelector("#gd").addEventListener("click", function(e){
-    e.preventDefault();
-});
-//Modelo
-let modeloVeh = document.getElementById("modelo");
 //tipo vehículo
-let carro = document.getElementById("tc");
-let moto = document.querySelector("#tm");
-//Construcción
-let radial = document.getElementById("rcr");
-let convencional = document.getElementById("rcc")
-//uso
-let pasajeros = document.getElementById("p");
-let LT = document.getElementById("lt");
-let comercial = document.getElementById("cml");
+let carro = document.getElementById("car");
+let moto = document.getElementById("mBike");
 let otr = document.getElementById("otr");
-//tipo banda
-let simetrica = document.getElementById("si");
-let asimetrica= document.getElementById("as");
-let unidireccional = document.getElementById("un");
-let hp = document.getElementById("hp");
-let ht = document.getElementById("ht");
-let at = document.getElementById("at");
-let rt = document.getElementById("rt");
-let mt = document.getElementById("mt");
+let camion = document.getElementById("truck");
+let bicicleta = document.getElementById("bike");
 
-let tablet = document.createElement("p");
 
-let inputForm = document.createElement("input");
-inputForm.setAttribute("type", "checkbox");
-let labelForm = document.createElement("label");
-labelForm.innerHTML = "TT";
+//obtengo el formulario
+let cForm = document.getElementById("contentForm");
+//Variable de la descripción
+let asD = document.createElement("p");
 
-function buttonde(){
-    
-    carrox();
-    createForm();
-    createt();
-    vaciar();
-    
+//INPUTS
+let usoTitle = document.getElementById("use");
+//inputs de uso carro
+let contentformP = document.createElement("input");
+let contentformC = document.createElement("input");
+let contentformLt = document.createElement("input");
+//inputs de banda carro
+let contentformAs = document.createElement("input");
+let contentformS = document.createElement("input");
+let contentformH = document.createElement("input");
+let contentformAt = document.createElement("input");
+let contentformRt = document.createElement("input");
+let contentformMt = document.createElement("input");
+//INPUTS Neumático moto
+let contentformTT = document.createElement("input");
+let contentformTL = document.createElement("input");
+//inputs banda moto
+let contentformSc = document.createElement("input");
+let contentformCI = document.createElement("input");
+let contentformSS = document.createElement("input");
+let contentformTRL = document.createElement("input");
+
+//Funcion de llamada
+function universal(){
+    validate();
+    carroForm();
+    motosForm();
 }
 
-function carrox(){
-   if (carro.checked && radial.checked && pasajeros.checked && asimetrica.checked) {
-    tablet.textContent = `la llanta es de carro, de construccion ${radial.value} y para pasajeros, asimetrica del modelo ${modeloVeh.value}`;
-   }else if (carro.checked && radial.checked && pasajeros.checked && simetrica.checked) {
-    tablet.textContent = "la llanta es de carro, de construccion radial y para pasajeros, simetrica";
-   }else if (carro.checked && radial.checked && pasajeros.checked && hp.checked || ht.checked) {
-    tablet.textContent = "la llanta es de carro, de construccion radial y para pasajeros, de alto rendimiento";
-}else if (carro.checked == false) {
-    
-}
-}
-//modulo de concatenacion
-//tablet.textContent = `la llanta es de carro, de construccion ${radial.value} y para pasajeros, asimetrica`;
-//------------------------------------------------//
-//modulo de vaciado de checkbox
-let DescriptionForm = document.getElementById("descform");
-function vaciar(){
-    DescriptionForm.reset();
-}
-//Modulo captacion de datos
-//tablet.textContent = `la llanta es de carro, de construccion ${radial.value} y para pasajeros, asimetrica del modelo ${modeloVeh.value}`;
+//Funcion de validación
+function validate(){
+    if(carro.checked == false && moto.checked == false && otr.checked == false && camion.checked == false && bicicleta.checked == false){
+        alert("Selecciona un valor");
+    }else{
+        console.log("seleccionaste una opcion");
+    }
 
-//Modulo de creacion de html 
-function createForm(){
-    if(moto.checked == true){
+}
+
+
+//Genera el formulario de carros
+function carroForm(){
+    if(carro.checked){
         
-        document.getElementById("motoForm").appendChild(inputForm);
-        document.getElementById("motoForm").appendChild(labelForm);
-        console.log("moto seleccionada")
+        usoTitle.innerHTML = "Uso y tipo de banda del carro";
+
+        
+        contentformP.setAttribute("type", "checkbox");
+        contentformP.setAttribute("id", "p");
+        let labelFormP = document.createElement("label");
+        labelFormP.textContent ="P";
+
+       
+        contentformC.setAttribute("type", "checkbox");
+        contentformC.setAttribute("id", "c");
+        let labelFormC = document.createElement("label");
+        labelFormC.textContent ="C";
+
+        
+        contentformLt.setAttribute("type", "checkbox");
+        contentformLt.setAttribute("id", "lt");
+        let labelFormLt = document.createElement("label");
+        labelFormLt.textContent ="LT";
+
+        let br = document.createElement("br");
+        let br2 = document.createElement("br");
+
+        
+        contentformAs.setAttribute("type", "checkbox");
+        contentformAs.setAttribute("id", "as");
+        contentformAs.setAttribute("value", "asimetrica");
+        let labelFormAs = document.createElement("label");
+        labelFormAs.textContent ="Asimetrica";
+        
+        
+        contentformS.setAttribute("type", "checkbox");
+        contentformS.setAttribute("id", "s");
+        let labelFormS = document.createElement("label");
+        labelFormS.textContent ="Simetrica";
+
+        
+        contentformH.setAttribute("type", "checkbox");
+        contentformH.setAttribute("id", "h");
+        let labelFormH = document.createElement("label");
+        labelFormH.textContent ="Hp/Ht";
+
+        
+        contentformAt.setAttribute("type", "checkbox");
+        contentformAt.setAttribute("id", "at");
+        let labelFormAt = document.createElement("label");
+        labelFormAt.textContent ="At";
+
+        
+        contentformRt.setAttribute("type", "checkbox");
+        contentformRt.setAttribute("id", "rt");
+        let labelFormRt = document.createElement("label");
+        labelFormRt.textContent ="Rt";
+
+        
+        contentformMt.setAttribute("type", "checkbox");
+        contentformMt.setAttribute("id", "mt");
+        let labelFormMt = document.createElement("label");
+        labelFormMt.textContent ="Mt";
+
+        let br3 = document.createElement("br");
+        let br4 = document.createElement("br");
+        
+        let butg = document.createElement("button");
+        butg.textContent = "Generar Descripcion";
+        butg.setAttribute("type", "button");
+        butg.setAttribute("id", "buttondc");
+        butg.addEventListener("click", generarDescC);
+
+        let br5 = document.createElement("br");
+        let br6 = document.createElement("br");
+        
+        
+
+        document.getElementById("contentForm").appendChild(contentformP);
+        document.getElementById("contentForm").appendChild(labelFormP);
+        document.getElementById("contentForm").appendChild(contentformC);
+        document.getElementById("contentForm").appendChild(labelFormC);
+        document.getElementById("contentForm").appendChild(contentformLt);
+        document.getElementById("contentForm").appendChild(labelFormLt);
+        document.getElementById("contentForm").appendChild(br);
+        document.getElementById("contentForm").appendChild(br2);
+        document.getElementById("contentForm").appendChild(contentformAs);
+        document.getElementById("contentForm").appendChild(labelFormAs);
+        document.getElementById("contentForm").appendChild(contentformS);
+        document.getElementById("contentForm").appendChild(labelFormS);
+        document.getElementById("contentForm").appendChild(contentformH);
+        document.getElementById("contentForm").appendChild(labelFormH);
+        document.getElementById("contentForm").appendChild(contentformAt);
+        document.getElementById("contentForm").appendChild(labelFormAt);
+        document.getElementById("contentForm").appendChild(contentformRt);
+        document.getElementById("contentForm").appendChild(labelFormRt);
+        document.getElementById("contentForm").appendChild(contentformMt);
+        document.getElementById("contentForm").appendChild(labelFormMt);
+        document.getElementById("contentForm").appendChild(br3);
+        document.getElementById("contentForm").appendChild(br4);
+        document.getElementById("contentForm").appendChild(butg);
+        document.getElementById("contentForm").appendChild(br5);
+        document.getElementById("contentForm").appendChild(br6);
+        document.getElementById("contentForm").appendChild(asD);
+    }
+}
+
+function motosForm(){
+    if(moto.checked){
+        usoTitle.innerHTML = "Uso y Neumático de la moto";
+
+        contentformTT.setAttribute("type", "checkbox");
+        contentformTT.setAttribute("id", "p");
+        let labelFormTT = document.createElement("label");
+        labelFormTT.textContent ="TT";
+
+        contentformTL.setAttribute("type", "checkbox");
+        contentformTL.setAttribute("id", "p");
+        let labelFormTL = document.createElement("label");
+        labelFormTL.textContent ="TL";
+
+        document.getElementById("contentForm").appendChild(labelFormTT);
+        document.getElementById("contentForm").appendChild(contentformTT);
+        document.getElementById("contentForm").appendChild(labelFormTL);
+        document.getElementById("contentForm").appendChild(contentformTL);
+
+    }
+}
+
+//Genera la descripción de carros
+function generarDescC(){
+    if(carro.checked){
+        switch (carro.checked) {
+            case contentformAs.checked && contentformP.checked:
+                asD.textContent ="llanta as y p seleccionada";
+                break;
+            case contentformAs.checked:
+                asD.textContent ="Asimetrica seleccionada";
+                break;
+            case contentformS.checked && contentformP.checked:
+                asD.textContent ="llanta s y p seleccionada";
+                break;    
+            case contentformS.checked:
+                asD.textContent ="Simetrica seleccionada";
+                break;
+            case contentformH.checked:
+                asD.textContent ="Alto rendimiento seleccionada";
+                break;
+            case contentformAt.checked && contentformLt.checked:
+                asD.textContent ="llanta at y lt seleccionada";
+                break;    
+            case contentformAt.checked:
+                asD.textContent ="At seleccionada";
+                break;
+            case contentformAt.checked && contentformLt.checked:
+                asD.textContent ="llanta rt y lt seleccionada";
+                break;    
+            case contentformRt.checked:
+                asD.textContent ="Llanta mixta";
+                break;
+            case contentformAt.checked && contentformLt.checked:
+                asD.textContent ="llanta mt y lt seleccionada";
+                break;    
+            case contentformMt.checked:
+                asD.textContent ="mT Seleccionada";
+                break;            
+            default: asD.textContent = "Selecciona algo"
+                break;
+        }
     }
     
 }
-function createt(){ 
-            document.querySelector("#st").appendChild(tablet);
-}
-
 
 
 
