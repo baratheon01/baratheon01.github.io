@@ -11,8 +11,10 @@ let dForm = document.getElementById("descForm");
 let cForm = document.getElementById("contentForm");
 //Variable de la descripción
 let asD = document.createElement("p");
+asD.className="tasd border";
 //button
 let butg = document.createElement("button");
+butg.className="btn btn-success";
 //salto de linea
 let br = document.createElement("br");
 let br2 = document.createElement("br");
@@ -22,6 +24,7 @@ let br5 = document.createElement("br");
 let br6 = document.createElement("br");
 //INPUTS
 let usoTitle = document.getElementById("use");
+usoTitle.className="mu";
 //inputs de uso carro
 let contentformP = document.createElement("input");
 let contentformC = document.createElement("input");
@@ -58,6 +61,7 @@ let labelFormSc = document.createElement("label");
 let labelFormCI = document.createElement("label");
 let labelFormTRL = document.createElement("label");
 let labelFormSS = document.createElement("label");
+
 //Funcion de llamada
 function universal(){
     validate();
@@ -66,6 +70,9 @@ function universal(){
     otrsForm();
     camionForm();
     biciForm();
+    if(asD.textContent != ""){
+        asD.textContent = ""
+    }
 }
 
 //Funcion de validación
@@ -443,6 +450,10 @@ function generarDescBi(){
         document.getElementById("contentForm").removeChild(butg);
     }
 }
+
+
+
+
 
 
 
