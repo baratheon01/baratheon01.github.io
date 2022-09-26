@@ -1,0 +1,64 @@
+.container{
+    width: 100%;
+    max-width: 98%;
+    height: 100hv;
+}
+h2{
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    margin-top: 26px;
+}
+label{
+    font-family: 'Roboto', sans-serif;
+    font-weight: medium;
+}
+
+p{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+.font2{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+}
+
+.form-grid{
+    text-align: center;
+    grid-column: 3/6;
+}
+
+.center{
+    text-align: center;
+}
+.btn2{
+   margin-left: 20px;
+}
+
+label{
+    margin-left: 6px;
+    margin-right: 6px;
+}
+input{
+    margin-left: 4px;
+}
+.mu{
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: rgb(83, 68, 68);
+}
+.tasd{
+    color:#638d07;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    background-color: rgb(238, 227, 227);
+    width: 60%;
+}
