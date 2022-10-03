@@ -12,11 +12,17 @@ h2{
 label{
     font-family: 'Roboto', sans-serif;
     font-weight: medium;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 
 p{
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
+}
+
+input{
+    margin-left: 4px;
 }
 
 .font2{
@@ -41,13 +47,7 @@ p{
    margin-left: 20px;
 }
 
-label{
-    margin-left: 6px;
-    margin-right: 6px;
-}
-input{
-    margin-left: 4px;
-}
+
 .mu{
     margin-top: 20px;
     text-transform: uppercase;
@@ -60,5 +60,14 @@ input{
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
     background-color: rgb(238, 227, 227);
-    width: 60%;
+    width: 100%;
+    padding: 10px;
+}
+.none{
+    background-color: #ffff;
+}
+
+.form-select{
+    margin-right: 20px;
+    text-transform: uppercase;
 }
