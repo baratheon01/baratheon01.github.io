@@ -15,6 +15,7 @@ asD.className="tasd border";
 //button
 let butg = document.createElement("button");
 butg.className="btn btn-success";
+
 //salto de linea
 let br = document.createElement("br");
 let br2 = document.createElement("br");
@@ -61,10 +62,47 @@ let labelFormSc = document.createElement("label");
 let labelFormCI = document.createElement("label");
 let labelFormTRL = document.createElement("label");
 let labelFormSS = document.createElement("label");
+//Inputs Camión
+let contentformDI = document.createElement("input");
+let contentformmix = document.createElement("input");
+let contentformtrac = document.createElement("input");
+//labels camión
+let labelFormDir = document.createElement("label");
+let labelFormMix = document.createElement("label");
+let labelFormTrac = document.createElement("label");
+//select OTR    
+let contentformSotr = document.createElement("select");
+let contentformSotr2 = document.createElement("select");
+contentformSotr.className = "form-select form-select-lg mb-3";
+//options otr
+let optOtr = document.createElement("option");
+let optOtr2 = document.createElement("option");
+let optOtr3 = document.createElement("option");
+let optOtr4 = document.createElement("option");
+//optr2
+let opTr = document.createElement("option");
+let opTr2 = document.createElement("option");
+let opTr3 = document.createElement("option");
+let opTr4 = document.createElement("option");
+let opTr5 = document.createElement("option");
+let opTr6 = document.createElement("option");
+let opTr7 = document.createElement("option");
+let opTr8 = document.createElement("option");
+let opTr9 = document.createElement("option");
+let opTr10 = document.createElement("option");
+let opTr11 = document.createElement("option");
+let opTr12 = document.createElement("option");
+let opTr13 = document.createElement("option");
+let opTr14 = document.createElement("option");
+let opTr15 = document.createElement("option");
+let opTr16 = document.createElement("option");
+let opTr17 = document.createElement("option");
+let opTr18 = document.createElement("option");
 
 //Funcion de llamada
 function universal(){
     validate();
+    
     carroForm();
     motosForm();
     otrsForm();
@@ -73,7 +111,17 @@ function universal(){
     if(asD.textContent != ""){
         asD.textContent = ""
     }
+    
 }
+
+function newBtn(){
+    generarDescBi();
+    generarDescC();
+    generarDescCam();
+    generarDescM();
+    generarDescOTR();
+}
+
 
 //Funcion de validación
 function validate(){
@@ -254,28 +302,85 @@ function otrsForm(){
     if(otr.checked){
         usoTitle.innerHTML = "llantas OTR";
 
+       contentformSotr.id = "otrSelect";
+       contentformSotr2.id = "otrSelect2";
+
+        optOtr.text = "Mov Tierra"; optOtr2.text = "Niveladora"; optOtr3.text = "Carga"; optOtr4.text = "Tractor";
+        contentformSotr.add(optOtr);
+        contentformSotr.add(optOtr2);
+        contentformSotr.add(optOtr3);
+        contentformSotr.add(optOtr4);
+
+        opTr.text = "E-1";opTr2.text = "E-2";opTr3.text = "E-3";opTr4.text = "E-4";opTr5.text = "E-5";opTr6.text = "E-6";opTr7.text = "E-7";opTr8.text = "G-1";opTr9.text = "G-2";opTr10.text = "G-3";opTr11.text = "G-4";opTr12.text = "L-2";opTr13.text = "L-3";opTr14.text = "L-4";opTr15.text = "L-3S";opTr16.text = "L-4S";opTr17.text = "L-5S";opTr18.text = "tractores";   
+        contentformSotr2.add(opTr);
+        contentformSotr2.add(opTr2);
+        contentformSotr2.add(opTr3);
+        contentformSotr2.add(opTr4);
+        contentformSotr2.add(opTr5);
+        contentformSotr2.add(opTr6);
+        contentformSotr2.add(opTr7);
+        contentformSotr2.add(opTr8);
+        contentformSotr2.add(opTr9);
+        contentformSotr2.add(opTr10);
+        contentformSotr2.add(opTr11);
+        contentformSotr2.add(opTr12);
+        contentformSotr2.add(opTr13);
+        contentformSotr2.add(opTr14);
+        contentformSotr2.add(opTr15);
+        contentformSotr2.add(opTr16);
+        contentformSotr2.add(opTr17);
+
         butg.textContent = "Generar Descripcion";
         butg.setAttribute("type", "button");
         butg.setAttribute("id", "buttondc");
         butg.addEventListener("click", generarDescOTR);
 
+        document.getElementById("contentForm").appendChild(contentformSotr);
+        document.getElementById("contentForm").appendChild(contentformSotr2);
+        document.getElementById("contentForm").appendChild(br);
+        document.getElementById("contentForm").appendChild(br2);
         document.getElementById("contentForm").appendChild(butg);
         document.getElementById("contentForm").appendChild(asD);
 
     }
 }
+
 //Formulario camión
 function camionForm(){
     if(camion.checked){
         usoTitle.innerHTML = "llantas Camión";
+
+        contentformDI.setAttribute("type", "checkbox");
+        contentformDI.setAttribute("id", "dir");
+        
+        labelFormDir.textContent ="Direccional";
+
+        contentformtrac.setAttribute("type", "checkbox");
+        contentformtrac.setAttribute("id", "trac");    
+        
+        labelFormTrac.textContent ="Tracción";
+
+        contentformmix.setAttribute("type", "checkbox");
+        contentformmix.setAttribute("id", "dir");
+        
+        labelFormMix.textContent ="Mixta";
 
         butg.textContent = "Generar Descripcion";
         butg.setAttribute("type", "button");
         butg.setAttribute("id", "buttondc");
         butg.addEventListener("click", generarDescCam);
 
+        document.getElementById("contentForm").appendChild(contentformDI);
+        document.getElementById("contentForm").appendChild(labelFormDir);
+        document.getElementById("contentForm").appendChild(contentformtrac);
+        document.getElementById("contentForm").appendChild(labelFormTrac);
+        document.getElementById("contentForm").appendChild(contentformmix);
+        document.getElementById("contentForm").appendChild(labelFormMix);
+        document.getElementById("contentForm").appendChild(br);
+        document.getElementById("contentForm").appendChild(br2);
         document.getElementById("contentForm").appendChild(butg);
         document.getElementById("contentForm").appendChild(asD);
+        
 
     }
 }
@@ -415,33 +520,113 @@ function generarDescC(){
 //OTR
 function generarDescOTR(){
     if (otr.checked) {
-        asD.textContent = "OTRS"
+        switch (otr.checked) {
+            case opTr.selected && optOtr.selected:
+                asD.textContent = "Movensión de tierra e1"
+                break;
+            case opTr2.selected && optOtr.selected:
+                asD.textContent = "Movensión de tierra e2"
+                break;
+            case opTr3.selected && optOtr.selected:
+                asD.textContent = "Movensión de tierra e3"
+                break;
+            case opTr4.selected && optOtr.selected:
+                asD.textContent = "Movensión de tierra e4"
+                break;
+            case opTr5.selected && optOtr.selected:
+                asD.textContent = "Movensión de tierra e5"
+                break;
+            case opTr6.selected && optOtr.selected:
+                asD.textContent = "Movensión de tierra e6"
+                break;
+            case opTr7.selected && optOtr.selected:
+                asD.textContent = "Movensión de tierra e7"
+                break;
+            case opTr8.selected && optOtr2.selected:
+                asD.textContent = "Niveladora G1"
+                break;
+            case opTr9.selected && optOtr2.selected:
+                asD.textContent = "Niveladora G2"
+                break;
+            case opTr10.selected && optOtr2.selected:
+                asD.textContent = "Niveladora G3"
+                break;
+            case opTr11.selected && optOtr2.selected:
+                asD.textContent = "Niveladora G4"
+                break;
+            case opTr12.selected && optOtr3.selected:
+                asD.textContent = "Cargadores l2"
+                break;
+            case opTr13.selected && optOtr3.selected:
+                asD.textContent = "Cargadores l3"
+                break;
+            case opTr14.selected && optOtr3.selected:
+                asD.textContent = "Cargadores l4"
+                break;   
+            case opTr15.selected && optOtr3.selected:
+                asD.textContent = "Cargadores l3s"
+                break;
+            case opTr16.selected && optOtr3.selected:
+                asD.textContent = "Cargadores l4s"
+                break;
+            case opTr17.selected && optOtr3.selected:
+                asD.textContent = "Cargadores l5s"
+                break;
+            case opTr18.selected && optOtr4.selected:
+                asD.textContent = "Tractores"
+                break; 
+        
+            default: asD.textContent="error";
+                break;
+        }
     }
     if (otr.checked) {
         dForm.reset();
         cForm.reset();
 
         document.getElementById("contentForm").removeChild(butg);
+        document.getElementById("contentForm").removeChild(contentformSotr);
+        document.getElementById("contentForm").removeChild(contentformSotr2);
         
     }
 }
 //CAMIÓN
 function generarDescCam(){
-    if (camion.checked) {
-        asD.textContent = "camion"
+    if(camion.checked){
+        switch (camion.checked) {
+            case contentformDI.checked:
+                asD.textContent = "Llanta direccional";
+                break;
+            case contentformtrac.checked:
+                asD.textContent = "Llanta de tracción";
+                break;
+            case contentformmix.checked:
+                asD.textContent = "Llanta mixta";
+                break;        
+            default:asD.textContent = "Selecciona algo"
+                break;
+        }
     }
+    
     if (camion.checked) {
         dForm.reset();
         cForm.reset();
 
         document.getElementById("contentForm").removeChild(butg);
-        
+        document.getElementById("contentForm").removeChild(contentformDI);
+        document.getElementById("contentForm").removeChild(labelFormDir);
+        document.getElementById("contentForm").removeChild(contentformtrac);
+        document.getElementById("contentForm").removeChild(labelFormTrac);
+        document.getElementById("contentForm").removeChild(contentformmix);
+        document.getElementById("contentForm").removeChild(labelFormMix);
     }
 }
 //BICICLETA
 function generarDescBi(){
     if (bicicleta.checked) {
-        asD.textContent = "Bicicleta"
+        asD.textContent = "Bicicleta";
+    }else{
+        asD.textContent = "Selecciona algo";
     }
     if (bicicleta.checked) {
         dForm.reset();
@@ -450,13 +635,3 @@ function generarDescBi(){
         document.getElementById("contentForm").removeChild(butg);
     }
 }
-
-
-
-
-
-
-
-
-
-
